@@ -21,7 +21,7 @@ def prepare_receptor(input_pdb="receptor.pdb"):
     Cleans PDB and converts to PDBQT format for Vina.
     NOTE: !obabel removed for GitHub. Creates dummy file for demo.
     """
-    print(f"[1/4] SECTION 1: RECEPTOR PREPARATION")
+    print(f"[1/5] SECTION 1: RECEPTOR PREPARATION")
     
     protein_clean = "protein_clean.pdb"
     if not os.path.exists(protein_clean):
@@ -81,7 +81,7 @@ def run_docking(receptor_pdbqt, ligands_dir, num_ligands=50):
     Runs AutoDock Vina for all ligands. 
     NOTE: Real vina call removed for GitHub. Creates dummy scores for demo.
     """
-    print(f"[3/4] SECTION 3: DOCKING WITH VINA")
+    print(f"[3/5] SECTION 3: DOCKING WITH VINA")
     
     box = "--center_x 40 --center_y 40 --center_z 40 --size_x 20 --size_y 20 --size_z 20"
     print(f"      -> Box params: {box}")
@@ -137,7 +137,7 @@ def plot_results(df):
     Creates Top5 bar plot and Score distribution histogram for ALL ligands.
     Styling : figsize=(8,5), dpi=300, teal, coral, bold.
     """
-    print(f"[4/4] SECTION 4: PLOTTING")
+    print(f"[5/5] SECTION 4: PLOTTING")
     df_numeric = df[df['Affinity_kcal/mol'] != 'NA'].copy()
     df_numeric['Affinity_kcal/mol'] = df_numeric['Affinity_kcal/mol'].astype(float)
     
