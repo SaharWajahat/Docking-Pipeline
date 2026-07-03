@@ -108,14 +108,15 @@ def run_docking(receptor_pdbqt, ligands_dir, num_ligands=50):
     return df
 
 
+
 # ==============================================================================
-# SECTION 4: PLOTTING RESULTS - YOUR COLAB STYLE
-# Bar: Teal, Inverted Y-axis | Hist: Coral, Hit Cutoff <-7.0
+# SECTION 4: PLOTTING RESULTS - 100% YOUR COLAB CODE
+# Bar: top5 only | Hist: df = all 50 smiles
 # ==============================================================================
 def plot_results(df):
     """
-    Creates Top5 bar plot and Score distribution histogram.
-    Styling from your Colab: figsize=(8,5), dpi=300, bold titles.
+    Creates Top5 bar plot and Score distribution histogram for ALL ligands.
+    Styling from your photo: figsize=(8,5), dpi=300, teal, coral, bold.
     """
     print(f"[4/4] SECTION 4: PLOTTING")
     df_numeric = df[df['Affinity_kcal/mol'] != 'NA'].copy()
@@ -123,7 +124,7 @@ def plot_results(df):
     
     top5 = df_numeric.sort_values("Affinity_kcal/mol").head(5)
 
-    # 1. Bar Chart - Top 5 Ligands
+    # 1. Bar Chart - TOP 5 ONLY
     plt.figure(figsize=(8, 5))
     plt.bar(top5['Ligand'].astype(str), top5['Affinity_kcal/mol'], color='teal')
     plt.title("Top 5 Ligands by Binding Affinity", fontsize=14, weight='bold')
@@ -135,9 +136,9 @@ def plot_results(df):
     plt.close()
     print("      -> Saved: results/top5_bar.png")
 
-    # 2. Histogram - Distribution of Scores
+    # 2. Histogram - ALL 50 SMILES, NOT TOP5
     plt.figure(figsize=(8, 5))
-    plt.hist(df_numeric['Affinity_kcal/mol'], bins=15, color='coral', edgecolor='black')
+    plt.hist(df_numeric['Affinity_kcal/mol'], bins=15, color='coral', edgecolor='black') # df_numeric = all 50
     plt.title("Distribution of Docking Scores", fontsize=14, weight='bold')
     plt.xlabel("Affinity (kcal/mol)", fontsize=12)
     plt.ylabel("Number of Ligands", fontsize=12)
