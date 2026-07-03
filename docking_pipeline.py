@@ -44,12 +44,12 @@ def prepare_receptor(input_pdb="receptor.pdb"):
 # SECTION 2: LIGAND PREPARATION
 # Colab Logic: SMILES .smi file -> OpenBabel -> ligands_pdbqt/ folder
 # ==============================================================================
-def prepare_ligands(smiles_file="MCL_AID1021_top50.smi", num_ligands=50):
+def prepare_ligands(smiles_file="top50.smi", num_ligands=50):
     """
     Converts SMILES to PDBQT ligands using OpenBabel.
     NOTE: !obabel removed for GitHub. Creates dummy files for demo.
     """
-    print(f"[2/4] SECTION 2: LIGAND PREPARATION")
+    print(f"[2/5] SECTION 2: LIGAND PREPARATION")
 
     ligands_dir = "ligands_pdbqt"
     os.makedirs(ligands_dir, exist_ok=True)
@@ -107,16 +107,35 @@ def run_docking(receptor_pdbqt, ligands_dir, num_ligands=50):
     print(f"      -> Saved: {csv_path}\n")
     return df
 
-
+# ==============================================================================
+# SECTION 4: POST-PROCESSING - TOP5 EXPORT [YOUR NEW CODE]
+# ==============================================================================
+def export_top5(df):
+    """
+    Your Colab code: Reads df, gets Top5, prints, saves to CSV.
+    Runs BEFORE plotting.
+    """
+    print(f"[4/5] SECTION 4: EXPORT TOP5")
+    df_numeric = df[df['Affinity_kcal/mol'] != 'NA'].copy()
+    df_numeric['Affinity_kcal/mol'] = df_numeric['Affinity_kcal/mol'].astype(float)
+    
+    # YOUR CODE FROM PHOTO - ADDED HERE
+    df = pd.read_csv("results/docking_scores.csv")
+    top5 = df_numeric.sort_values("Affinity_kcal/mol").head(5)
+    print(top5.to_string(index=False)) # Print table
+    top5.to_csv("results/top5_ligands.csv", index=False) # Save CSV
+    print(f"      -> Saved: results/top5_ligands.csv ✅\n")
+    
+    return top5 # Return for plotting
 
 # ==============================================================================
-# SECTION 4: PLOTTING RESULTS - 100% YOUR COLAB CODE
-# Bar: top5 only | Hist: df = all 50 smiles
+# SECTION 5: PLOTTING RESULTS 
+# Bar: top5 only | Hist: df = all smiles
 # ==============================================================================
 def plot_results(df):
     """
     Creates Top5 bar plot and Score distribution histogram for ALL ligands.
-    Styling from your photo: figsize=(8,5), dpi=300, teal, coral, bold.
+    Styling : figsize=(8,5), dpi=300, teal, coral, bold.
     """
     print(f"[4/4] SECTION 4: PLOTTING")
     df_numeric = df[df['Affinity_kcal/mol'] != 'NA'].copy()
