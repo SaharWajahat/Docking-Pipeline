@@ -1,0 +1,11 @@
+    cff-version: 1.2.0
+    title: "Docking-Pipeline: A reproducible AutoDock Vina workflow"
+    message: "If you use this software, please cite it as below."
+    type: software
+    authors:
+      - family-names: Wajahat
+        given-names: Sahar
+    date-released: 2026-09-04
+    version: 1.0.0
+    url: "https://github.com/SaharWajahat/Docking-Pipeline"
+    license: MIT
