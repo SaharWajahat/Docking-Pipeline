@@ -25,4 +25,5 @@ A clean, reproducible AutoDock Vina docking workflow for structure-based drug di
 Built for GPCR drug discovery research.
 
 **License**: MIT 
+
 **Author**: Sahar Wajahat, 2026
