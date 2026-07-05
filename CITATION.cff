@@ -1,16 +1,14 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
-type: software
 authors:
-    - family-names: "Wajahat"
-      given-names: "Sahar"
-      orcid: "https://orcid.org/0009-0004-8329-7340"
+    - family-names: Wajahat
+    given-names: Sahar
 title: "Docking-Pipeline: Reproducible AutoDock Vina Workflow for Drug Discovery"
-version: "1.0.0"
-date-released: "2026-07-05"
+version: 1.0.1
+date-released: 2026-07-05
+license: MIT
 url: "https://github.com/SaharWajahat/Docking-Pipeline"
 repository-code: "https://github.com/SaharWajahat/Docking-Pipeline"
-license: "MIT"
 keywords:
     - "molecular docking"
     - "autodock vina"
