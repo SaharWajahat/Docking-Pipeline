@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 authors:
     - family-names: Wajahat
-    given-names: Sahar
+      given-names: Sahar
 title: "Docking-Pipeline: Reproducible AutoDock Vina Workflow for Drug Discovery"
 version: 1.0.1
 date-released: 2026-07-05
