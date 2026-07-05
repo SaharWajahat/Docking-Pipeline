@@ -5,7 +5,7 @@ authors:
     - family-names: "Wajahat"
       given-names: "Sahar"
       orcid: "https://orcid.org/0009-0004-8329-7340"
-title: "Docking-Pipeline: A reproducible AutoDock Vina workflow"
+title: "Docking-Pipeline: Reproducible AutoDock Vina Workflow for Drug Discovery"
 version: "1.0.0"
 date-released: "2026-07-05"
 url: "https://github.com/SaharWajahat/Docking-Pipeline"
