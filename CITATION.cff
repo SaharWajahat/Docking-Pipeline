@@ -4,7 +4,7 @@ type: software
 authors:
     - family-names: "Wajahat"
       given-names: "Sahar"
-      orcid: "https://orcid.org/0009-0004-8329-7340"
+      orcid: "https://orcid.org/0009-0001-9005-5448"
 title: "Docking-Pipeline: Reproducible AutoDock Vina Workflow for Drug Discovery"
 version: "1.0.1"
 date-released: "2026-07-05"
